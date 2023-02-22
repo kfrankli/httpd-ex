@@ -8,7 +8,7 @@ The application serves a single static html page via httpd.
 To build and run the application:
 
 ```
-$ s2i build https://github.com/sclorg/httpd-ex centos/httpd-24-centos7 myhttpdimage
+$ s2i build https://github.com/kfrankli/httpd-ex centos/httpd-24-centos7 myhttpdimage
 $ docker run -p 8080:8080 myhttpdimage
 $ # browse to http://localhost:8080
 ```
@@ -16,8 +16,4 @@ $ # browse to http://localhost:8080
 You can also build and deploy the application on OpenShift, assuming you have a
 working `oc` command line environment connected to your cluster already:
 
-`$ oc new-app centos/httpd-24-centos7~https://github.com/sclorg/httpd-ex`
-
-You can also deploy the sample template for the application:
-
-`$ oc new-app -f https://raw.githubusercontent.com/sclorg/httpd-ex/master/openshift/templates/httpd.json`
+`$ oc new-app httpd:2.4-ubi9~https://github.com/kfrankli/httpd-ex.git`
